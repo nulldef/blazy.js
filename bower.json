@@ -1,0 +1,26 @@
+{
+  "name": "blazy",
+  "main": "blazy.js",
+  "version": "1.0.0",
+  "authors": [
+    "alex_coder <alex.coder1@gmail.com>"
+  ],
+  "description": "Lazy-load lightweight lib",
+  "keywords": [
+    "lazy-load",
+    "blazy",
+    "images"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.2.6",
+    "jquery": "~2.1.4"
+  }
+}
