@@ -22,9 +22,9 @@ All API functions are available from object ```Blazy``` (`$image` is `img` in jQ
 * `start({})` restarts Blazy with user's options
 
 # Options object
-```json
+```javascript
 {
-    effect: 'fadeIn', // effect name from lib Animate.css
+	effect: 'fadeIn', // effect name from lib Animate.css
 	selectorAttr: 'blazy', // selector watching for
 	readyClass: 'blazy-ready' // ready class when image is loaded & shown
 }
