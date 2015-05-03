@@ -18,7 +18,11 @@ var Blazy = (function ($) {
 		if (!$image) return;
 
 		$image.load(function () {
-			$(this).addClass(options.readyClass + ' ' + options.effect);
+			var $images = $(this);
+			$image.addClass(options.readyClass + ' ' + options.effect);
+			$image.trigger('blazy.image.loaded');
+			$image.attr('width', $image.width());
+			$image.attr('height', $image.height());
 		});
 	}
 
@@ -34,23 +38,20 @@ var Blazy = (function ($) {
 	}
 
 	var isVisible = function ($image) {
-		var $doc = $(document);
+		var $win = $(window);
 		var top = $image.offset().top;
-		var left = $image.offset().left;
 		var height = $image.height();
-		var width = $image.width();
-		var dTop = $(window).scrollTop();
-		var dLeft = $(window).scrollLeft();
-		var dHeight = $(window).height();
-		var dWidth = $(window).width();
+		var dTop = $win.scrollTop();
+		var dHeight = $win.height();
 		return top + height > dTop && top < dTop + dHeight;
 	}
 
 	var hideImage = function ($image) {
 		$image.attr('src', '').removeClass(options.readyClass + ' ' + options.effect);
+		$image.trigger('blazy.image.hidden');
 	}
 
-	var onScroll = function (event) {
+	var checkVisibility = function (event) {
 		$findImages().each(function (index, image) {
 			var $image = $(image);
 			var vis = isVisible($image);
@@ -64,11 +65,35 @@ var Blazy = (function ($) {
 			var $image = $(image);
 			initImage($image);
 		});
+
+		checkVisibility();
+		$(window).scroll(checkVisibility);
 	}
 
 	$(document).ready(function () {
 		start();
-		onScroll();
-		$(window).scroll(onScroll);
 	});
+
+	// API
+	return {
+		getImages: function () {
+			return $images;
+		},
+		hideImage: function ($image) {
+			hideImage($image);
+		},
+		loadImage: function ($image) {
+			loadImage($image);
+		},
+		update: function () {
+			return checkVisibility();
+		},
+		start: function (opts) {
+			options = $.extend(options, opts);
+			start();
+		},
+		getOptions: function () {
+			return options;
+		}
+	}
 })(jQuery);
