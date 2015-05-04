@@ -34,4 +34,9 @@ All API functions are available from object ```Blazy``` (`$image` is `img` in jQ
 * `blazy.image.loaded` - fired when image is loaded & shown
 * `blazy.image.hidden` - fired when image is hidden
 
+# Example
+```html
+<img src="#" id="2" blazy="http://lorempixel.com/200/200/city/2">
+```
+will load image by url from ```blazy``` attribute when image will visible in window and hide image when image is not visible
 
