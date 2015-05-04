@@ -6,7 +6,10 @@ Lazy-load javascript lightweight lib
 * [JQuery](https://jquery.com/)
 
 ---
-### Just include library in your page
+### Install
+``` bower install blazy.js --save```
+
+### And include library in your page
 ```html
 <link rel="stylesheet" type="text/css" href="blazy.min.css">
 <script type="text/javascript" src="blazy.min.js"></script>
