@@ -1,0 +1,24 @@
+[blazy] {
+	opacity: 0;
+	animation-duration: .5s;
+  animation-fill-mode: both;
+}
+
+[blazy].blazy-ready {
+	opacity: 1;
+	animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
