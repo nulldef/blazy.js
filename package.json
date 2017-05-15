@@ -1,0 +1,14 @@
+{
+  "name": "blazy.js",
+  "version": "0.1.0",
+  "description": "Lazy-loading for images",
+  "main": "src/blazy.js",
+  "dependencies": {
+  },
+  "author": "Alexey B. <alex.coder1@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nulldef/blazy.js"
+  }
+}
